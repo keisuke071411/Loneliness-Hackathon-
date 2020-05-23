@@ -39,10 +39,10 @@ import './App.css';
           this.state = {
               counters: [
                   {id: 'A', count: 0, color: 'tomato'},
-                  {id: 'B', count: 0, color: 'skyblue'},
-                  {id: 'C', count: 0, color: 'limegreen'},
-                  {id: 'D', count: 0, color: 'orange'},
-                  {id: 'E', count: 0, color: 'pink'}
+                  // {id: 'B', count: 0, color: 'skyblue'},
+                  // {id: 'C', count: 0, color: 'limegreen'},
+                  // {id: 'D', count: 0, color: 'orange'},
+                  // {id: 'E', count: 0, color: 'pink'}
               ],
               total: 0
           };
@@ -75,7 +75,9 @@ import './App.css';
                       counters={this.state.counters}
                       countUp={this.countUp}    
                   />
-                  <button>TOTAL KILL : {this.state.total}</button>
+                  <button onClick={() => alert(this.state.total)}>
+                    TOTAL KILL : {this.state.total}
+                  </button>
               </div>
           );
       }
