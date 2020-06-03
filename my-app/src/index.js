@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { component } from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 import './App.css';
 
 (() => {
 
   function Counter(props) {
       return (
-          <li style={{background:props.counter.color}} onClick={() => props.countUp(props.counter)}>
+          <li style={{background:props.counter.color}}
+          onClick={() => props.countUp(props.counter)}>
               {props.counter.id}:{props.counter.count}
           </li>
       );
@@ -32,17 +32,24 @@ import './App.css';
           </ul>
       );
   }
+    function numBlanch (totalNum) {
+        if (totalNum <= 10) {
+            console.log('hello');
+        } else if (totalNum <= 20) {
+            console.log('hey');
+        } else if (totalNum <= 30) {
+            console.log('30');
+        } else {
+            console.log('no');
+        }
+    }
 
   class App extends React.Component {
       constructor() {
           super();
           this.state = {
               counters: [
-                  {id: 'A', count: 0, color: 'tomato'},
-                  // {id: 'B', count: 0, color: 'skyblue'},
-                  // {id: 'C', count: 0, color: 'limegreen'},
-                  // {id: 'D', count: 0, color: 'orange'},
-                  // {id: 'E', count: 0, color: 'pink'}
+                  {id: 'A', count: 0, color: 'tomato'}
               ],
               total: 0
           };
@@ -75,8 +82,8 @@ import './App.css';
                       counters={this.state.counters}
                       countUp={this.countUp}    
                   />
-                  <button onClick={() => alert(this.state.total)}>
-                    TOTAL KILL : {this.state.total}
+                  <button onClick={() => numBlanch(this.state.total)}>
+                      TOTAL KILL : {this.state.total}
                   </button>
               </div>
           );
