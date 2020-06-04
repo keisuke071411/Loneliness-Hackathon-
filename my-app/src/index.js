@@ -32,21 +32,10 @@ import './App.css';
           </ul>
       );
   }
-    function numBlanch (totalNum) {
-        if (totalNum <= 10) {
-            console.log('hello');
-        } else if (totalNum <= 20) {
-            console.log('hey');
-        } else if (totalNum <= 30) {
-            console.log('30');
-        } else {
-            console.log('no');
-        }
-    }
 
   class App extends React.Component {
-      constructor() {
-          super();
+      constructor(props) {
+          super(props);
           this.state = {
               counters: [
                   {id: 'A', count: 0, color: 'tomato'}
@@ -54,6 +43,7 @@ import './App.css';
               total: 0
           };
           this.countUp = this.countUp.bind(this);
+          this.onClickButton = this.onClickButton.bind(this);
       }
 
       countUp(counter) {
@@ -75,6 +65,35 @@ import './App.css';
           });
       }
 
+      //   onClickButton(totalNum) {
+    //     this.setState({ color: 'blue' });
+    //     if (totalNum < 10) {
+    //         console.log('hello');
+    //     } else if(totalNum < 20) {
+    //         console.log('good night');
+    //     } else {
+    //         console.log('no');
+    //     }
+    // }
+
+        //   onClickButton() {
+    //     console.log('hello');
+    //     this.setState({ color: 'blue' });
+    //     if (this.state.total < 10) {
+    //         console.log('hello');
+    //     } else if(this.state.total < 20) {
+    //         console.log('good night');
+    //     } else {
+    //         console.log('no');
+    //     }
+    // }
+
+    
+      onClickButton = (counter) => {
+        // this.setState({ color: 'blue' });
+        console.log({color: counter.color});
+    }
+
       render() {
           return (
               <div className="container">
@@ -82,7 +101,7 @@ import './App.css';
                       counters={this.state.counters}
                       countUp={this.countUp}    
                   />
-                  <button onClick={() => numBlanch(this.state.total)}>
+                  <button onClick={this.onClickButton}>
                       TOTAL KILL : {this.state.total}
                   </button>
               </div>
