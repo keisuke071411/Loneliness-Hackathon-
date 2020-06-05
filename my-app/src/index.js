@@ -88,10 +88,21 @@ import './App.css';
                         total: prevState.total
                     };
                 });
-            } else {
+            } else if (this.state.total < 30) {
             this.setState(prevState => {
                 const counters = prevState.counters.map(counter => {
-                    return {id: counter.id, count: counter.count, color: 'yellow'};
+                    return {id: counter.id, count: counter.count, color: 'lime'};
+                });
+  
+                return {
+                    counters: counters,
+                    total: prevState.total
+                };
+            });
+          } else {
+            this.setState(prevState => {
+                const counters = prevState.counters.map(counter => {
+                    return {id: counter.id, count: counter.count, color: 'orange'};
                 });
   
                 return {
