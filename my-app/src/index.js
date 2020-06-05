@@ -38,7 +38,7 @@ import './App.css';
           super(props);
           this.state = {
               counters: [
-                  {id: 'A', count: 0, color: 'tomato'}
+                  {id: 'オラオラァ', count: 0, color: 'tomato'}
               ],
               total: 0
           };
@@ -121,7 +121,7 @@ import './App.css';
                       countUp={this.countUp}    
                   />
                   <button onClick={this.onClickButton}>
-                      TOTAL KILL : {this.state.total}
+                    いいや！限界だ押すね！
                   </button>
               </div>
           );
