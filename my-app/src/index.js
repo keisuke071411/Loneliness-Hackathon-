@@ -1,6 +1,6 @@
 import React, { component } from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+// import {BrowserRouter, Route, Link} from 'react-router-dom';
 import './index.css';
 import './App.css';
 
@@ -38,7 +38,7 @@ import './App.css';
           super(props);
           this.state = {
               counters: [
-                  {id: 'A', count: 0, color: 'tomato'}
+                  {id: 'オラオラァ', count: 0, color: 'tomato'}
               ],
               total: 0
           };
@@ -65,34 +65,53 @@ import './App.css';
           });
       }
 
-      //   onClickButton(totalNum) {
-    //     this.setState({ color: 'blue' });
-    //     if (totalNum < 10) {
-    //         console.log('hello');
-    //     } else if(totalNum < 20) {
-    //         console.log('good night');
-    //     } else {
-    //         console.log('no');
-    //     }
-    // }
-
-        //   onClickButton() {
-    //     console.log('hello');
-    //     this.setState({ color: 'blue' });
-    //     if (this.state.total < 10) {
-    //         console.log('hello');
-    //     } else if(this.state.total < 20) {
-    //         console.log('good night');
-    //     } else {
-    //         console.log('no');
-    //     }
-    // }
-
+      onClickButton() {
+          if (this.state.total < 10){
+              this.setState(prevState => {
+                  const counters = prevState.counters.map(counter => {
+                      return {id: counter.id, count: counter.count, color: counter.color};
+                  });
     
-      onClickButton = (counter) => {
-        // this.setState({ color: 'blue' });
-        console.log({color: counter.color});
-    }
+                  return {
+                      counters: counters,
+                      total: prevState.total
+                  };
+              });
+            } else if (this.state.total < 20) {
+                this.setState(prevState => {
+                    const counters = prevState.counters.map(counter => {
+                        return {id: counter.id, count: counter.count, color: 'blue'};
+                    });
+      
+                    return {
+                        counters: counters,
+                        total: prevState.total
+                    };
+                });
+            } else if (this.state.total < 30) {
+            this.setState(prevState => {
+                const counters = prevState.counters.map(counter => {
+                    return {id: counter.id, count: counter.count, color: 'lime'};
+                });
+  
+                return {
+                    counters: counters,
+                    total: prevState.total
+                };
+            });
+          } else {
+            this.setState(prevState => {
+                const counters = prevState.counters.map(counter => {
+                    return {id: counter.id, count: counter.count, color: 'orange'};
+                });
+  
+                return {
+                    counters: counters,
+                    total: prevState.total
+                };
+            });
+          }
+      }
 
       render() {
           return (
@@ -102,7 +121,7 @@ import './App.css';
                       countUp={this.countUp}    
                   />
                   <button onClick={this.onClickButton}>
-                      TOTAL KILL : {this.state.total}
+                    いいや！限界だ押すね！
                   </button>
               </div>
           );
