@@ -1,17 +1,17 @@
-import React, { component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-// import {BrowserRouter, Route, Link} from 'react-router-dom';
 import './index.css';
 import './App.css';
+import image from '/Users/morookakeisuke/Desktop/develop/practice/React/my-app/src/bbb.png';
 
 (() => {
 
   function Counter(props) {
       return (
-          <li style={{background:props.counter.color}}
-          onClick={() => props.countUp(props.counter)}>
-              {props.counter.id}:{props.counter.count}
-          </li>
+            <li style={{background:props.counter.color}}
+            onClick={() => props.countUp(props.counter)}>
+                {props.counter.id}
+            </li>
       );
   }
 
@@ -27,18 +27,18 @@ import './App.css';
       });
 
       return (
-          <ul>
+          <ul className='aaaaa'>
               {counters}
           </ul>
       );
   }
 
-  class App extends React.Component {
+  class Index extends React.Component {
       constructor(props) {
           super(props);
           this.state = {
               counters: [
-                  {id: 'オラオラァ', count: 0, color: 'tomato'}
+                  {id: 'いいや！限界だ連打するね！', count: 0, color: 'gray'}
               ],
               total: 0
           };
@@ -70,8 +70,8 @@ import './App.css';
               this.setState(prevState => {
                   const counters = prevState.counters.map(counter => {
                       return {id: counter.id, count: counter.count, color: counter.color};
+
                   });
-    
                   return {
                       counters: counters,
                       total: prevState.total
@@ -80,7 +80,7 @@ import './App.css';
             } else if (this.state.total < 20) {
                 this.setState(prevState => {
                     const counters = prevState.counters.map(counter => {
-                        return {id: counter.id, count: counter.count, color: 'blue'};
+                        return {id: 'ACT3! 3 FREEZE!', count: counter.count, color: 'repeating-linear-gradient(-45deg, green, green 10px, #fff 10px, #fff 20px'};
                     });
       
                     return {
@@ -88,10 +88,10 @@ import './App.css';
                         total: prevState.total
                     };
                 });
-            } else if (this.state.total < 30) {
+            } else if (this.state.total < 30 ) {
             this.setState(prevState => {
                 const counters = prevState.counters.map(counter => {
-                    return {id: counter.id, count: counter.count, color: 'lime'};
+                    return {id: 'おれの髪が・・・なんだって！？', count: counter.count, color:  'repeating-linear-gradient(-45deg, skyblue, skyblue 10px, #E6C3C6 10px, #E6C3C6 20px'};
                 });
   
                 return {
@@ -99,10 +99,32 @@ import './App.css';
                     total: prevState.total
                 };
             });
-          } else {
+            } else if (this.state.total < 40 ) {
             this.setState(prevState => {
                 const counters = prevState.counters.map(counter => {
-                    return {id: counter.id, count: counter.count, color: 'orange'};
+                    return {id: 'スタープラチナ・ザ・ワールド!', count: counter.count, color: 'repeating-linear-gradient(-45deg, #3725F5, #3725F5 10px, #fff 10px, #fff 20px'};
+                });
+  
+                return {
+                    counters: counters,
+                    total: prevState.total
+                };
+            });
+          } else if (this.state.total === 44) {
+            this.setState(prevState => {
+                const counters = prevState.counters.map(counter => {
+                    return {id: "やっ！やったぞッ！発動したぞッ！",  count: counter.count, color: 'repeating-linear-gradient(-45deg, black, black 10px, #fff 10px, #fff 20px)'};
+                });
+  
+                return {
+                    counters: counters,
+                    total: prevState.total
+                };
+            });
+          }　else {
+            this.setState(prevState => {
+                const counters = prevState.counters.map(counter => {
+                    return {id: "だが断る！", count: counter.count, color: 'repeating-linear-gradient(-45deg, green, green 10px, #C88BD1 10px, #C88BD1 20px'};
                 });
   
                 return {
@@ -116,12 +138,14 @@ import './App.css';
       render() {
           return (
               <div className="container">
+                  <h1>「スイッチ」を押させるなーーーーッ！</h1>
+                  <img src={ image }/>
                   <CounterList
                       counters={this.state.counters}
-                      countUp={this.countUp}    
+                      countUp={this.countUp}  
                   />
                   <button onClick={this.onClickButton}>
-                    いいや！限界だ押すね！
+                    今だっ！
                   </button>
               </div>
           );
@@ -129,7 +153,7 @@ import './App.css';
   }
 
   ReactDOM.render(
-      <App/>,
+      <Index/>,
       document.getElementById('root')
   );
 }) ();
